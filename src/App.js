@@ -1,7 +1,9 @@
 import logo from './logo.png';
 import './App.css';
 
-function App() {
+import Products from './components/Products/Products';
+
+const App = () => {
   return (
     <div className="App">
       <header className="App-header">
@@ -12,6 +14,7 @@ function App() {
         </p>
   
       </header>
+      <Products />
     </div>
   );
 }
