@@ -11,6 +11,7 @@ const App = () => {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState({});
     const [order, setOrder] = useState({});
+    const [errorMessage, setErrorMessage] = useState('');
 
     //fetches products from commerce.js
     const fetchProducts = async() => {
@@ -61,6 +62,7 @@ const App = () => {
           refreshCart();
         } 
         catch (error){
+          console.log("Error in handling checkout!!");
           setErrorMessage(error.data.error.message);
         }
     };

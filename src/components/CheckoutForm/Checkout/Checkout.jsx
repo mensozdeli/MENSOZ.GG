@@ -8,23 +8,25 @@ import PaymentForm from '../PaymentForm';
 const steps = ['¡ Shipping address !', '¡ Payment details !'];
 
 const Checkout = ({cart, order, onCaptureCheckout, error}) => {
-    const [activeStep, setActiveStep] = useState(0);
     const [checkoutToken, setCheckoutToken] = useState(null);
+    const [activeStep, setActiveStep] = useState(0);
     const [shippingData, setShippingData] = useState({});
     const classes = useStyles();
     
     useEffect(() => {
-       const generateToken = async () => {
-           try {
-               const token = await commerce.checkout.generateToken(cart.id, {type: 'cart'});
-               console.log("Your token is: ",  token);
-               setCheckoutToken(token);
-           } catch (error) {
-               
-           }
-       }
+        if(cart.id){
+            const generateToken = async () => {
+                try {
+                    const token = await commerce.checkout.generateToken(cart.id, {type: 'cart'});
+                    console.log("Your token is: ",  token);
+                    setCheckoutToken(token);
+                } catch (error) {
+                    
+                }
+            }
 
-       generateToken();
+            generateToken();
+        }
     }, [cart])
 
     const nextStep = () => setActiveStep((prevActiveStep) => prevActiveStep+1);
@@ -43,9 +45,9 @@ const Checkout = ({cart, order, onCaptureCheckout, error}) => {
     );
 
     //if activeStep===0 return AddressForm else return PaymentForm
-    const Form = () => activeStep === 0 ?
+    const Form = () => (activeStep === 0 ?
         <AddressForm checkoutToken={checkoutToken} next={next}/> : 
-        <PaymentForm shippingData={shippingData} checkoutToken={checkoutToken} backStep={backStep}/>
+        <PaymentForm checkoutToken={checkoutToken} nextStep={nextStep} backStep={backStep} shippingData={shippingData} onCaptureCheckout={onCaptureCheckout}/>);
         
     return (
         <>

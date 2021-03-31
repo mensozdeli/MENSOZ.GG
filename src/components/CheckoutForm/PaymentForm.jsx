@@ -7,11 +7,15 @@ import Review from './Review';
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
-const PaymentForm = ({checkoutToken, backStep}) => {
-    const handleSubmit = (event, elements, stripe) => {
+const PaymentForm = ({checkoutToken, nextStep, backStep, shippingData, onCaptureCheckout}) => {
+    const handleSubmit = async (event, elements, stripe) => {
         event.preventDefault();
-
-        if(!stripe || !elements) return;
+        
+        if(!stripe || !elements){
+            if(!stripe) console.log("No stripe!");
+            if(!elements) console.log("No elements!")
+            return;
+        }
 
         const cardElement = elements.getElement(CardElement);
 
@@ -21,25 +25,33 @@ const PaymentForm = ({checkoutToken, backStep}) => {
             console.log(error);
         }
         else{
-            const orderData ={
-                list_items: checkoutToken.live.line_items,
-                customer: {firstname: shippingData.firstName, lastname: shippingData.lastName, email: shippingData.email},
+            console.log("Here is shippingData: ", shippingData);
+
+            const orderData = {
+                line_items: checkoutToken.live.line_items,
+                customer: { firstname: shippingData.firstName, lastname: shippingData.lastName, email: shippingData.email },
+
                 shipping: { 
-                    name: 'International', 
-                    street: shippingData.address1, 
-                    town_city: shippingData.city, 
-                    county_state: shippingData.shippingSubdivision, 
-                    postal_zip_code: shippingData.zip, 
-                    country: shippingData.shippingCountry 
-                },
-                fulfillment: {shipping_method: shippingData.shippingOption},
+                            name: shippingData.firstName + " " + shippingData.lastName,
+                            street: shippingData.address1,
+                            town_city: shippingData.city, 
+                            county_state: shippingData.shippingSubdivision,
+                            postal_zip_code: shippingData.zip,
+                            country: shippingData.shippingCountry 
+                        },
+
+                fulfillment: { shipping_method: shippingData.shippingOption },
                 payment: {
                   gateway: 'stripe',
                   stripe: {
                     payment_method_id: paymentMethod.id,
                   },
                 },
-            };
+              };
+            console.log("Here is the checkoutTokenid: ", checkoutToken.id);
+            console.log("Here is orderData: ", orderData);
+            onCaptureCheckout(checkoutToken.id, orderData);
+            nextStep();
         }
     }
     return (

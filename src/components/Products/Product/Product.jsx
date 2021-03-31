@@ -8,7 +8,7 @@ import useStyles from './productStyles';
 const Product = ({product, onAddToCart}) => {
     const classes = useStyles();
 
-    console.log("Logging product from product.jsx", product);
+    // console.log("Logging product from product.jsx", product);
 
     return (
         <Card className={classes.root}>
