@@ -9,14 +9,16 @@ const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart
     const classes = useStyles();
     const EmptyCart = () =>
     (
-        <Typography variant = 'subtitle1'>¡ Your Cart is Empty, 
-            <Link to="/" className={classes.link}> Add Some Items First</Link> !
-        </Typography>
+ 
+            <Typography className={classes.typography} variant = 'subtitle1' >¡ Your Cart is Empty, 
+                <Link to="/" className={classes.link}> Add Some Items First</Link> !
+            </Typography>
+  
     )
 
     const FilledCart = () =>
     (
-        <>
+        <main>
             <Grid container spacing ={3}>
                  {
                      cart.line_items.map((item => 
@@ -28,22 +30,25 @@ const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart
                  }
             </Grid>
             <div className = {classes.cardDetails}>
-                <Typography variant = "h4">{cart.subtotal.formatted_with_symbol}</Typography>
+                <Typography className={classes.typography} variant = "h4">{cart.subtotal.formatted_with_symbol}</Typography>
                 <div>
                    <Button className = {classes.emptyButton} size ="large" type = "button" variant = "contained" color = 'secondary' onClick={handleEmptyCart}>¡ Empty Cart !</Button> 
                    <Button component={Link} to="/checkout" className = {classes.checkoutButton} size ="large" type = "button" variant = "contained" color = 'primary'>¡ Checkout !</Button>
                 </div>
             </div>
-        </>
+        </main>
     );
     if (!cart.line_items) return '¡ Loading !';
 
     return (
-        <Container>
+        <main className = {classes.content}>
+
+        <Container >
             <div className = {classes.toolbar}/>
             <Typography className={classes.title } variant="h3" gutterbottom>¡ Your Shopping Cart !</Typography>
             { !cart.line_items.length ? <EmptyCart /> : <FilledCart />}
         </Container>
+        </main>
     )
 }
 export default Cart;

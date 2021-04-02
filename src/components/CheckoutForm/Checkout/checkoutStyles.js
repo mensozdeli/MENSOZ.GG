@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
+import Background from '../../../assets/MensozDeliPixel.png';
 
 export default makeStyles((theme) => ({
   appBar: {
@@ -49,4 +50,13 @@ export default makeStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  content:{
+    backgroundImage: `url(${Background})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    position: 'fixed',
+    minWidth: '100%',
+    minHeight: '100%',
+
+  }
 }));

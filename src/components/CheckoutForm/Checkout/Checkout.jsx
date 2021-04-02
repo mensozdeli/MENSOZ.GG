@@ -50,7 +50,7 @@ const Checkout = ({cart, order, onCaptureCheckout, error}) => {
         <PaymentForm checkoutToken={checkoutToken} nextStep={nextStep} backStep={backStep} shippingData={shippingData} onCaptureCheckout={onCaptureCheckout}/>);
         
     return (
-        <>
+        <main className={classes.content}>
             <div className={classes.toolbar} />
             <main className={classes.layout}>
                 <Paper className={classes.paper}>
@@ -66,7 +66,7 @@ const Checkout = ({cart, order, onCaptureCheckout, error}) => {
                 </Paper>
             </main>
 
-        </>
+        </main>
     )
 }
 

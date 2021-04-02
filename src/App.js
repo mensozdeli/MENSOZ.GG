@@ -19,17 +19,24 @@ const App = () => {
         setProducts(data);
     }
 
-    //fetches the actice cart from commercejs
+    //fetches the active cart from commercejs
     const fetchCart = async () => {
         const cart  = await commerce.cart.retrieve();
         setCart(cart);
     }
 
     //Adds a product to the active cart
-    const handleAddToCart = async(productId, quantity) =>
-    {
+    const handleAddToCart = async(productId, quantity) => {
         const {cart}  = await commerce.cart.add(productId, quantity);
         setCart(cart);
+    } 
+
+    const handleAddToCartVariant = async (productId, quantity, variantGroupId, optionId) => {
+        console.log(productId, quantity, variantGroupId, optionId);
+        const {cart} = await commerce.cart.add(productId, quantity, {[variantGroupId] : optionId,});
+        setCart(cart);
+
+    
     }
 
     //updates the quantity of a product in the cart
@@ -86,12 +93,15 @@ const App = () => {
                     <Route exact path="/">
                         <header className="App-header">
                         <img src={logo} className="App-logo" alt="logo" />
-                        <iframe width="311" height="175" src="https://www.youtube.com/embed/bvygXwsl5PI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe width="311" height="175" src="https://www.youtube.com/embed/4er_KGxHvTk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
                         <p>
                             ¡ Order Coming Up !
                         </p>
                         </header>
-                        <Products products={products} onAddToCart = {handleAddToCart}/> 
+                        <div className="Products">
+                            <Products products={products} onAddToCart={handleAddToCart} onAddToCartVariant={handleAddToCartVariant}/> 
+                        </div>
                     </Route>
 
                     {/* Cart Route */}

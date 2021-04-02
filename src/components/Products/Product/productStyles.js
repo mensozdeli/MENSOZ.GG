@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles(() => ({
     root: {
-        maxWidth: '100%'
+        maxWidth: '80%'
     },
     media: {
         height: 0,
@@ -16,4 +16,8 @@ export default makeStyles(() => ({
         display: 'flex',
         justifyContent: 'space-between',
       },
+      formControl: {
+        minWidth: 60,
+      },
+   
 }));
