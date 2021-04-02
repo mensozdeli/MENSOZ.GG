@@ -5,9 +5,12 @@ import Background from '../../assets/MensozDeliPixel.png';
 export default makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
   title: {
-   
+    width: '50%',
+    backgroundColor: '#A0A0A0',
+    opacity: 0.75,
     color: 'white',
     marginTop: '5%',
+    marginLeft: '25%'
   },
   emptyButton: {
     minWidth: '150px',
@@ -40,7 +43,17 @@ export default makeStyles((theme) => ({
 
   },
   typography: {
-      color: "white",
-    
+    width: '50%',
+    backgroundColor: '#A0A0A0',
+    opacity: 0.75,
+    color: '#4d79ff',
+
+    marginLeft: '25%'
+  },
+  typography2: {
+    backgroundColor: '#3f50b5',
+    // opacity: 0.75,
+    color: 'white',
+    maxHeight: 60,
   },
 }));

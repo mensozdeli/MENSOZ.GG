@@ -9,6 +9,7 @@ export default makeStyles((theme) => ({
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     padding: theme.spacing(3),
+    paddingBottom: '90px',
   },
   root: {
     flexGrow: 1,

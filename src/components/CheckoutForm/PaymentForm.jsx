@@ -33,7 +33,7 @@ const PaymentForm = ({checkoutToken, nextStep, backStep, shippingData, onCapture
 
                 shipping: { 
                             name: shippingData.firstName + " " + shippingData.lastName,
-                            street: shippingData.address1,
+                            street: shippingData.address1 + " "  + shippingData.address2,
                             town_city: shippingData.city, 
                             county_state: shippingData.shippingSubdivision,
                             postal_zip_code: shippingData.zip,
@@ -48,7 +48,6 @@ const PaymentForm = ({checkoutToken, nextStep, backStep, shippingData, onCapture
                   },
                 },
               };
-            console.log("Here is the checkoutTokenid: ", checkoutToken.id);
             console.log("Here is orderData: ", orderData);
             onCaptureCheckout(checkoutToken.id, orderData);
             nextStep();

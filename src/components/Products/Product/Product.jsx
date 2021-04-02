@@ -28,7 +28,9 @@ const Product = ({product, onAddToCart, onAddToCartVariant}) => {
                 onChange={handleChangeSize}
             >
                 {product.variant_groups[0].options.map((option) => (
-                       <MenuItem value={option.id}>{option.name}</MenuItem>
+                    
+                       <MenuItem value={option.id}>{option.name}</MenuItem> : null
+                    
                 ))}
 
                 {/* <MenuItem value={10}>Ten</MenuItem>
@@ -65,9 +67,15 @@ const Product = ({product, onAddToCart, onAddToCartVariant}) => {
                     <IconButton disabled={true}>
                         <AddShoppingCart />
                     </IconButton>  
+                : product.inventory.managed && product.inventory.available === 0 ?
+                        <IconButton disabled={true}>
+                            SOLD OUT
+                            <AddShoppingCart />
+                        </IconButton>  
                 :  <IconButton aria-label="Add to Cart" onClick = {() => onAddToCartVariant(product.id, 1, product.variant_groups[0].id, size)}>
                         <AddShoppingCart />
                     </IconButton> 
+               
             }
              </CardActions>
         </Card>

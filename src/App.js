@@ -6,8 +6,21 @@ import { commerce } from './lib/commerce';
 import { Products, Navbar, Cart, Checkout } from './components';
 import{BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
+import ReactJKMusicPlayer from 'react-jinke-music-player';
+import 'react-jinke-music-player/assets/index.css';
+
+import whereYouAt from './assets/music/WHERE-YOU-AT.alp.wav';
+import theyKnow from './assets/music/THEY-KNOW.wav';
+import dog from './assets/music/DOG.wav';
+import machine$ from './assets/music/MACHINE$.wav';
+import rise from './assets/music/RISE.wav';
+
+import albumCover from './assets/album-cover.png';
+
 
 const App = () => {
+    
+
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState({});
     const [order, setOrder] = useState({});
@@ -80,7 +93,45 @@ const App = () => {
     }, []);
     console.log("Logging Products: ", products);
     console.log("Products in Cart: ", cart);
-    console.log("Total Items: ", cart.total_items);
+    // console.log("Total Items: ", cart.total_items);
+
+    const audiolist = [
+        {
+            cover: albumCover,
+            musicSrc: whereYouAt,
+            name: 'WHERE YOU AT',
+            singer: 'Mayor Marc'
+
+        },
+        {
+            cover: albumCover,
+            musicSrc: theyKnow,
+            name: 'THEY KNOW',
+            singer: 'Mayor Marc'
+
+        },
+        {
+            cover: albumCover,
+            musicSrc: dog,
+            name: 'DOG',
+            singer: 'Mayor Marc'
+
+        },
+        {
+            cover: albumCover,
+            musicSrc: machine$,
+            name: 'MACHINE$',
+            singer: 'Mayor Marc'
+
+        },
+        {
+            cover: albumCover,
+            musicSrc: rise,
+            name: 'RISE!',
+            singer: 'Mayor Marc'
+
+        },
+    ]
 
     return (
         <Router>
@@ -102,6 +153,23 @@ const App = () => {
                         <div className="Products">
                             <Products products={products} onAddToCart={handleAddToCart} onAddToCartVariant={handleAddToCartVariant}/> 
                         </div>
+                        {
+                            window.innerWidth > 711 ? 
+                            <ReactJKMusicPlayer
+                                audioLists={audiolist} 
+                                mode={"full"} 
+                                // toggleMode={false} 
+                                autoPlay={false} 
+                                defaultPosition={{ right: 100, bottom: 120}}
+                            /> : 
+                            <ReactJKMusicPlayer
+                                audioLists={audiolist}  
+                                // toggleMode={false} 
+                                autoPlay={false} 
+                                defaultPosition={{ right: 20, bottom: 120}}
+                            />
+                        }
+                     
                     </Route>
 
                     {/* Cart Route */}

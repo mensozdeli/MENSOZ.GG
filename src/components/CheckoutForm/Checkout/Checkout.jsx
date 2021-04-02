@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import {Paper, Stepper, Step, StepLabel, Typography, CircularProgress, Divider, Button} from '@material-ui/core';
+import {Link, useHistory} from 'react-router-dom';
+import {Paper, Stepper, Step, StepLabel, Typography, CircularProgress, Divider, Button, CssBaseline} from '@material-ui/core';
 import {commerce} from '../../../lib/commerce';
 import useStyles from './checkoutStyles';
 import AddressForm from '../AddressForm';
@@ -12,7 +13,11 @@ const Checkout = ({cart, order, onCaptureCheckout, error}) => {
     const [activeStep, setActiveStep] = useState(0);
     const [shippingData, setShippingData] = useState({});
     const classes = useStyles();
+    const history = useHistory();
     
+    const nextStep = () => setActiveStep((prevActiveStep) => prevActiveStep+1);
+    const backStep = () => setActiveStep((prevActiveStep) => prevActiveStep-1);
+
     useEffect(() => {
         if(cart.id){
             const generateToken = async () => {
@@ -21,7 +26,7 @@ const Checkout = ({cart, order, onCaptureCheckout, error}) => {
                     console.log("Your token is: ",  token);
                     setCheckoutToken(token);
                 } catch (error) {
-                    
+                    if (activeStep !== steps.length) history.push('/');
                 }
             }
 
@@ -29,20 +34,41 @@ const Checkout = ({cart, order, onCaptureCheckout, error}) => {
         }
     }, [cart])
 
-    const nextStep = () => setActiveStep((prevActiveStep) => prevActiveStep+1);
-    const backStep = () => setActiveStep((prevActiveStep) => prevActiveStep-1);
-
     const next = (data) => {
         setShippingData(data);
         nextStep();
 
     }
+    
+    
 
-    const Confirmation = () => (
-        <div>
-            Myeeee Confirmation 
+    let Confirmation = () => (order.customer ? (
+        <>
+        <CssBaseline />
+          <div>
+            <Typography variant="h5">¡ Good looks for your purchase, {order.customer.firstname} {order.customer.lastname} !</Typography>
+            <Divider className={classes.divider} />
+            <Typography variant="subtitle2">You will be receiving a confirmation email at: {order.customer.email}</Typography>
+            <Typography variant="subtitle2">Order ref: {order.customer_reference}</Typography>
+          </div>
+          <br />
+          <Button component={Link} variant="outlined" type="button" to="/">Back to home</Button>
+        </>
+      ) : (
+        <div className={classes.spinner}>
+          <CircularProgress />
         </div>
-    );
+      ));
+    
+      if (error) {
+        Confirmation = () => (
+          <>
+            <Typography variant="h5">Error: {error}</Typography>
+            <br />
+            <Button component={Link} variant="outlined" type="button" to="/">Back to home</Button>
+          </>
+        );
+      }
 
     //if activeStep===0 return AddressForm else return PaymentForm
     const Form = () => (activeStep === 0 ?
