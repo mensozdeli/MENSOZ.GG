@@ -32,12 +32,13 @@ export default makeStyles((theme) => ({
     marginTop: '10%',
     width: '100%',
     justifyContent: 'space-between',
+   
   },
   content:{
     backgroundImage: `url(${Background})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    position: 'fixed',
+    backgroundRepeat: 'repeat-y',
     minWidth: '100%',
     minHeight: '100%',
 

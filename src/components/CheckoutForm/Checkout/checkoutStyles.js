@@ -54,7 +54,7 @@ export default makeStyles((theme) => ({
     backgroundImage: `url(${Background})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    position: 'fixed',
+    position: 'sticky',
     minWidth: '100%',
     minHeight: '100%',
 

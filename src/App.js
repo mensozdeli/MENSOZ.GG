@@ -147,7 +147,7 @@ const App = () => {
                         <iframe width="311" height="175" src="https://www.youtube.com/embed/4er_KGxHvTk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
                         <p>
-                            ¡ Order Coming Up !
+                            ¡ DOGGOD !
                         </p>
                         </header>
                         <div className="Products">

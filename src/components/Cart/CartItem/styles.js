@@ -16,5 +16,8 @@ export default makeStyles(() => ({
     display: 'flex',
     alignItems: 'center',
   },
+  root: {
+    height: '100%'
+  }
 
 }));

@@ -12,10 +12,16 @@ const Review = ({checkoutToken}) => {
                        <Typography variant="body2">{product.line_total.formatted_with_symbol}</Typography>
                     </ListItem>
                 ))}
+                 <ListItem style={{padding: '10px 0'}}>
+                    <ListItemText primary="Shipping" />
+                    <Typography variant="body2" >
+                        {checkoutToken.shipping_methods[0].price.formatted_with_symbol}
+                    </Typography>
+                </ListItem>
                 <ListItem style={{padding: '10px 0'}}>
                     <ListItemText primary="Total" />
                     <Typography variant="subtitle1" style={{fontWeight: 700}}>
-                        {checkoutToken.live.subtotal.formatted_with_symbol}
+                        ${checkoutToken.live.subtotal.raw + checkoutToken.shipping_methods[0].price.raw}.00
                     </Typography>
                 </ListItem>
             </List>
