@@ -17,7 +17,7 @@ const Product = ({product, onAddToCart, onAddToCartVariant}) => {
         setSize(event.target.value);
         console.log("Here is the size now: ", size);
     }
-    // console.log("Logging product from product.jsx", product);
+    console.log("Logging product from product.jsx", product);
     const SizeSelect = () => (
         <FormControl className={classes.formControl}>
             <InputLabel id="size-select-label">{product.variant_groups[0].name}</InputLabel>
@@ -42,7 +42,9 @@ const Product = ({product, onAddToCart, onAddToCartVariant}) => {
 
     return (
         <Card className={classes.root}>
-             <CardMedia className={classes.media} image={product.media.source} title={product.name} /> 
+            <a href={product.thank_you_url}target="_blank">
+                <CardMedia className={classes.media} image={product.media.source} title={product.name} /> 
+            </a>
              <CardContent>
                  <div className={classes.cardContent}>
                      <Typography variant="h5" gutterBottom>
