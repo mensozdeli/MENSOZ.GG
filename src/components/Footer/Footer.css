@@ -1,0 +1,21 @@
+.main-footer {
+    color: white;
+    background-color: black;
+    padding-top: 1em;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    list-style-type: none;
+    min-height: 15vh;
+}
+
+.main-footer a:link{
+    color: white;
+}
+
+.main-footer a:visited{
+    color: red;
+}
+hr {
+    width: 75%;
+}

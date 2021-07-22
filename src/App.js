@@ -3,7 +3,7 @@ import './App.css';
 
 import React, { useState, useEffect } from 'react';
 import { commerce } from './lib/commerce';
-import { Products, Navbar, Cart, Checkout } from './components';
+import { Products, Navbar, Cart, Checkout, Footer } from './components';
 import{BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 import ReactJKMusicPlayer from 'react-jinke-music-player';
@@ -147,7 +147,7 @@ const App = () => {
                         <iframe width="311" height="175" src="https://www.youtube.com/embed/4er_KGxHvTk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
                         <p>
-                            ¡ DOGGOD !
+                        ¡ LOOK ALIVE !
                         </p>
                         </header>
                         <div className="Products">
@@ -169,7 +169,7 @@ const App = () => {
                                 defaultPosition={{ right: 20, bottom: 120}}
                             />
                         }
-                     
+                     <Footer/>
                     </Route>
 
                     {/* Cart Route */}
@@ -194,7 +194,9 @@ const App = () => {
                 
                 </Switch>
             </div>
+           
         </Router>
+  
 	);
 }
 
