@@ -9,14 +9,14 @@ import{BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import ReactJKMusicPlayer from 'react-jinke-music-player';
 import 'react-jinke-music-player/assets/index.css';
 
-import whereYouAt from './assets/music/WHERE-YOU-AT.alp.wav';
-import theyKnow from './assets/music/THEY-KNOW.wav';
-import dog from './assets/music/DOG.wav';
-import machine$ from './assets/music/MACHINE$.wav';
-import rise from './assets/music/RISE.wav';
+// import whereYouAt from './assets/music/WHERE-YOU-AT.alp.wav';
+// import theyKnow from './assets/music/THEY-KNOW.wav';
+// import dog from './assets/music/DOG.wav';
+// import machine$ from './assets/music/MACHINE$.wav';
+// import rise from './assets/music/RISE.wav';
 
-import albumCover from './assets/album-cover.png';
-
+import albumCover from './assets/album-cover.PNG';
+import dog from './assets/music/dog-basedgod.wav';
 
 const App = () => {
     
@@ -98,36 +98,8 @@ const App = () => {
     const audiolist = [
         {
             cover: albumCover,
-            musicSrc: whereYouAt,
-            name: 'WHERE YOU AT',
-            singer: 'Mayor Marc'
-
-        },
-        {
-            cover: albumCover,
-            musicSrc: theyKnow,
-            name: 'THEY KNOW',
-            singer: 'Mayor Marc'
-
-        },
-        {
-            cover: albumCover,
             musicSrc: dog,
-            name: 'DOG',
-            singer: 'Mayor Marc'
-
-        },
-        {
-            cover: albumCover,
-            musicSrc: machine$,
-            name: 'MACHINE$',
-            singer: 'Mayor Marc'
-
-        },
-        {
-            cover: albumCover,
-            musicSrc: rise,
-            name: 'RISE!',
+            name: 'DOG Remix (Feat. Lil B) [Remix]',
             singer: 'Mayor Marc'
 
         },
@@ -159,12 +131,14 @@ const App = () => {
                                 audioLists={audiolist} 
                                 mode={"full"} 
                                 // toggleMode={false} 
+                                showDownload={false}
                                 autoPlay={false} 
                                 defaultPosition={{ right: 100, bottom: 120}}
                             /> : 
                             <ReactJKMusicPlayer
                                 audioLists={audiolist}  
                                 // toggleMode={false} 
+                                showDownload={false}
                                 autoPlay={false} 
                                 defaultPosition={{ right: 20, bottom: 120}}
                             />
