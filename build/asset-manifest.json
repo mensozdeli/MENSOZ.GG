@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.7d9848fe.chunk.css",
-    "main.js": "/static/js/main.8242107c.chunk.js",
-    "main.js.map": "/static/js/main.8242107c.chunk.js.map",
+    "main.css": "/static/css/main.ea45ada6.chunk.css",
+    "main.js": "/static/js/main.3675d1fe.chunk.js",
+    "main.js.map": "/static/js/main.3675d1fe.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.29000292.js",
     "runtime-main.js.map": "/static/js/runtime-main.29000292.js.map",
     "static/css/2.b0ff5e21.chunk.css": "/static/css/2.b0ff5e21.chunk.css",
@@ -12,24 +12,20 @@
     "static/js/3.d1524daa.chunk.js.map": "/static/js/3.d1524daa.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.b0ff5e21.chunk.css.map": "/static/css/2.b0ff5e21.chunk.css.map",
-    "static/css/main.7d9848fe.chunk.css.map": "/static/css/main.7d9848fe.chunk.css.map",
+    "static/css/main.ea45ada6.chunk.css.map": "/static/css/main.ea45ada6.chunk.css.map",
     "static/js/2.b05657fe.chunk.js.LICENSE.txt": "/static/js/2.b05657fe.chunk.js.LICENSE.txt",
-    "static/media/DOG.147a5642.wav": "/static/media/DOG.147a5642.wav",
-    "static/media/MACHINE$.2d7708ee.wav": "/static/media/MACHINE$.2d7708ee.wav",
     "static/media/MensozDeli.5b180fbd.png": "/static/media/MensozDeli.5b180fbd.png",
     "static/media/MensozDeliPixel.6cba6abd.png": "/static/media/MensozDeliPixel.6cba6abd.png",
-    "static/media/RISE.2ec142d1.wav": "/static/media/RISE.2ec142d1.wav",
-    "static/media/THEY-KNOW.0cc005d5.wav": "/static/media/THEY-KNOW.0cc005d5.wav",
-    "static/media/WHERE-YOU-AT.alp.03cc30f5.wav": "/static/media/WHERE-YOU-AT.alp.03cc30f5.wav",
-    "static/media/album-cover.8b78bf87.png": "/static/media/album-cover.8b78bf87.png",
-    "static/media/logo.613809b5.png": "/static/media/logo.613809b5.png",
+    "static/media/album-cover.a1ad0e14.PNG": "/static/media/album-cover.a1ad0e14.PNG",
+    "static/media/dog-basedgod.b401e6e9.wav": "/static/media/dog-basedgod.b401e6e9.wav",
+    "static/media/logo.0d1c379e.gif": "/static/media/logo.0d1c379e.gif",
     "static/media/mensoz-logo.0c163659.png": "/static/media/mensoz-logo.0c163659.png"
   },
   "entrypoints": [
     "static/js/runtime-main.29000292.js",
     "static/css/2.b0ff5e21.chunk.css",
     "static/js/2.b05657fe.chunk.js",
-    "static/css/main.7d9848fe.chunk.css",
-    "static/js/main.8242107c.chunk.js"
+    "static/css/main.ea45ada6.chunk.css",
+    "static/js/main.3675d1fe.chunk.js"
   ]
 }
