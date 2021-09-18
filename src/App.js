@@ -18,6 +18,13 @@ import 'react-jinke-music-player/assets/index.css';
 import albumCover from './assets/album-cover.PNG';
 import dog from './assets/music/dog-basedgod.wav';
 
+//Adding songs September 18, 2021
+import bananaBread from './assets/music/banana-bread-mayor-marc.m4a';
+import dibi from './assets/music/dibiflipsession2-2.m4a';
+//Covers For Songs
+import bananaBreadCover from './assets/IMG_5809.jpg';
+import dibiCover from './assets/flipCover.jpeg'
+
 const App = () => {
     
 
@@ -97,12 +104,27 @@ const App = () => {
 
     const audiolist = [
         {
+            cover: bananaBreadCover,
+            musicSrc: bananaBread,
+            name: 'banana bread',
+            singer: 'Mayor Marc'
+
+        },
+        {
             cover: albumCover,
             musicSrc: dog,
             name: 'DOG Remix (Feat. Lil B) [Remix]',
             singer: 'Mayor Marc'
 
         },
+        {
+            cover: dibiCover,
+            musicSrc: dibi,
+            name: 'dibiflipsession',
+            singer: 'Mayor Marc'
+
+        },
+    
     ]
 
     return (
@@ -119,7 +141,7 @@ const App = () => {
                         <iframe width="311" height="175" src="https://www.youtube.com/embed/4er_KGxHvTk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
                         <p>
-                        ¡ LOOK ALIVE !
+                        ¡ WE ROAM TUNDRAS !
                         </p>
                         </header>
                         <div className="Products">
