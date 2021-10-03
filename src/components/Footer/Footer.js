@@ -11,7 +11,7 @@ const Footer = () => {
              
                 <ui className="list-unstyled">
                     <li><a href="https://www.instagram.com/davegnarly/">¡ DE GERENTE !</a></li>
-                    <li><a href="https://www.instagram.com/nothing_loops/">¡ MUSIC !</a></li>
+                    <li><a href="https://www.instagram.com/mayor_marc/">¡ MUSIC !</a></li>
                     <li><a href="https://www.instagram.com/avusart/">¡ BACKGROUND ART !</a></li>
                     <li><a href="https://github.com/armankabir">¡ WEB DEVELOPER !</a></li>
                 </ui>
