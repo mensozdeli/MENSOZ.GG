@@ -140,7 +140,7 @@ const App = () => {
                         <img src={logo} className="App-logo" alt="logo" />
                         <iframe width="311" height="175" src="https://www.youtube.com/embed/4er_KGxHvTk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         <p>
-                        ¡ STAY GOLDEN, DUCK !
+                        ¡ STAY GOLDEN , DUCK !
                         </p>
                         </header>
                         <div className="Products">
