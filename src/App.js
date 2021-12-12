@@ -138,9 +138,9 @@ const App = () => {
                     <Route exact path="/">
                         <header className="App-header">
                         <img src={logo} className="App-logo" alt="logo" />
-                        <iframe width="311" height="175" src="https://www.youtube.com/embed/4er_KGxHvTk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe width="311" height="175" src="https://www.youtube.com/embed/JH61TJ9Tgr4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         <p>
-                        ¡ STAY GOLDEN , DUCK !
+                        ¡ END OF PHASE 1 !
                         </p>
                         </header>
                         <div className="Products">
