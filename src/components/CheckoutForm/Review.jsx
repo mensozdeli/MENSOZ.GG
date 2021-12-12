@@ -1,7 +1,15 @@
 import React from 'react';
-import {Typography, List, ListItem, ListItemText} from '@material-ui/core';
+import {Typography, List, ListItem, ListItemText, Button} from '@material-ui/core';
 
-const Review = ({checkoutToken}) => {
+import { useState } from 'react';
+
+const Review = ({checkoutToken, handleDiscount}) => {
+
+    const [discountCode, setDiscountCode] = useState("");
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        handleDiscount(checkoutToken, discountCode);
+    }
     return (
         <>
             <Typography variant="h6" gutterBottom>¡ Order Summary !</Typography>
@@ -25,6 +33,19 @@ const Review = ({checkoutToken}) => {
                     </Typography>
                 </ListItem>
             </List>
+            <form onSubmit={handleSubmit}>
+                <label>
+                    Discount Code: 
+                    <input
+                        type='text'
+                        value={discountCode}
+                        onChange={(e) => setDiscountCode(e.target.value)}
+                    />
+                </label>
+                <Button type="submit" variant="contained" disabled={!discountCode} color="primary"> 
+                    Apply
+                </Button>
+            </form>
         </>
     )
 }

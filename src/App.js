@@ -94,6 +94,16 @@ const App = () => {
         }
     };
 
+    //method to check discount code
+
+    const handleDiscount = async (checkoutTokenId, discountCode) => {
+       const {cart} = await commerce.checkout.checkDiscount(checkoutTokenId, {
+            code: discountCode
+        }).then((res) => console.log(res));
+        
+        setCart(cart);
+    }
+
     useEffect(() => {
         fetchProducts();
         fetchCart();
@@ -184,6 +194,7 @@ const App = () => {
                             order={order}
                             onCaptureCheckout={handleCaptureCheckout} 
                             error={errorMessage}
+                            handleDiscount={handleDiscount}
                         />
                     </Route>
                 
