@@ -39,7 +39,7 @@ const Product = ({product, onAddToCart, onAddToCartVariant}) => {
             </Select>
         </FormControl>
     )
-
+    console.log("Here is product from Product.jsx: ", product);
     return (
         <Card className={classes.root}>
             <a href={product.thank_you_url}target="_blank">
@@ -60,7 +60,7 @@ const Product = ({product, onAddToCart, onAddToCartVariant}) => {
              <CardActions className={classes.cardActions}>
             {/* Only shows size dropdown if the products has that option */}
             {product.variant_groups.length > 0 ? <SizeSelect /> : null}
-            {   product.variant_groups.length === 0 ?
+            {   product.variant_groups.length === 0 && product.inventory.available !== 0 ?
                     <IconButton aria-label="Add to Cart" onClick = {() => onAddToCart(product.id, 1)}>
                         <AddShoppingCart />
                     </IconButton> 
