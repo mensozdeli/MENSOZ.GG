@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.ea45ada6.chunk.css",
-    "main.js": "/static/js/main.016d06ff.chunk.js",
-    "main.js.map": "/static/js/main.016d06ff.chunk.js.map",
+    "main.js": "/static/js/main.87835d1a.chunk.js",
+    "main.js.map": "/static/js/main.87835d1a.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.29000292.js",
     "runtime-main.js.map": "/static/js/runtime-main.29000292.js.map",
     "static/css/2.b0ff5e21.chunk.css": "/static/css/2.b0ff5e21.chunk.css",
@@ -17,19 +17,23 @@
     "static/media/IMG_5809.4f27e83c.jpg": "/static/media/IMG_5809.4f27e83c.jpg",
     "static/media/MensozDeli.5b180fbd.png": "/static/media/MensozDeli.5b180fbd.png",
     "static/media/MensozDeliPixel.6cba6abd.png": "/static/media/MensozDeliPixel.6cba6abd.png",
+    "static/media/TypeProtoCover.ce290376.png": "/static/media/TypeProtoCover.ce290376.png",
     "static/media/album-cover.a1ad0e14.PNG": "/static/media/album-cover.a1ad0e14.PNG",
     "static/media/banana-bread-mayor-marc.c91ce86c.m4a": "/static/media/banana-bread-mayor-marc.c91ce86c.m4a",
     "static/media/dibiflipsession2-2.909bbb0a.m4a": "/static/media/dibiflipsession2-2.909bbb0a.m4a",
     "static/media/dog-basedgod.b401e6e9.wav": "/static/media/dog-basedgod.b401e6e9.wav",
     "static/media/flipCover.a03d5c5e.jpeg": "/static/media/flipCover.a03d5c5e.jpeg",
     "static/media/logo.0d1c379e.gif": "/static/media/logo.0d1c379e.gif",
-    "static/media/mensoz-logo.0c163659.png": "/static/media/mensoz-logo.0c163659.png"
+    "static/media/mensoz-logo.0c163659.png": "/static/media/mensoz-logo.0c163659.png",
+    "static/media/typeproto01.0560f708.wav": "/static/media/typeproto01.0560f708.wav",
+    "static/media/typeproto02.8f6f020a.wav": "/static/media/typeproto02.8f6f020a.wav",
+    "static/media/typeproto03.1eb5f30c.wav": "/static/media/typeproto03.1eb5f30c.wav"
   },
   "entrypoints": [
     "static/js/runtime-main.29000292.js",
     "static/css/2.b0ff5e21.chunk.css",
     "static/js/2.b05657fe.chunk.js",
     "static/css/main.ea45ada6.chunk.css",
-    "static/js/main.016d06ff.chunk.js"
+    "static/js/main.87835d1a.chunk.js"
   ]
 }

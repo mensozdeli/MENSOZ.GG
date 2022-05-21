@@ -23,7 +23,13 @@ import bananaBread from './assets/music/banana-bread-mayor-marc.m4a';
 import dibi from './assets/music/dibiflipsession2-2.m4a';
 //Covers For Songs
 import bananaBreadCover from './assets/IMG_5809.jpg';
-import dibiCover from './assets/flipCover.jpeg'
+import dibiCover from './assets/flipCover.jpeg';
+
+//Adding songs for TYPE:PROTO drop May 21, 2022
+import typeProto1 from './assets/music/typeproto01.mp3';
+import typeProto2 from './assets/music/typeproto02.mp3';
+import typeProto3 from './assets/music/typeproto03.mp3';
+import typeProtoCover from './assets/TypeProtoCover.png';
 
 const App = () => {
     
@@ -104,9 +110,23 @@ const App = () => {
 
     const audiolist = [
         {
-            cover: bananaBreadCover,
-            musicSrc: bananaBread,
-            name: 'banana bread',
+            cover: typeProtoCover,
+            musicSrc: typeProto1,
+            name: 'TYPE:PROTO 1',
+            singer: 'Mayor Marc'
+
+        },
+        {
+            cover: typeProtoCover,
+            musicSrc: typeProto2,
+            name: 'TYPE:PROTO 2',
+            singer: 'Mayor Marc'
+
+        },
+        {
+            cover: typeProtoCover,
+            musicSrc: typeProto3,
+            name: 'TYPE:PROTO 3',
             singer: 'Mayor Marc'
 
         },
@@ -124,7 +144,12 @@ const App = () => {
             singer: 'Mayor Marc'
 
         },
-    
+        {
+            cover: bananaBreadCover,
+            musicSrc: bananaBread,
+            name: 'banana bread',
+            singer: 'Mayor Marc'
+        },
     ]
 
     return (
