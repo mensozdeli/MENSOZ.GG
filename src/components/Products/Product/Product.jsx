@@ -7,6 +7,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
+import Carousel from 'react-material-ui-carousel';
+
 import useStyles from './productStyles';
 
 const Product = ({product, onAddToCart, onAddToCartVariant}) => {
@@ -65,20 +67,30 @@ const Product = ({product, onAddToCart, onAddToCartVariant}) => {
 
     return (
         <Card className={classes.root}>
-                <CardMedia className={classes.media} image={images[imgIndex]} title={product.name} onClick={imgClick}/> 
-             <CardContent>
-                 <div className={classes.cardContent}>
-                     <Typography variant="h5" gutterBottom>
-                        {product.name}
-                     </Typography>
-                     <Typography variant="h5">
-                        {product.price.formatted_with_symbol}
-                     </Typography>
-                 </div>
-                 <Typography dangerouslySetInnerHTML={{__html: product.description}} variant="body2" color="textSecondary"/>
-             </CardContent>
-         
-             <CardActions className={classes.cardActions}>
+            <Carousel
+                autoPlay={false}
+                navButtonsAlwaysVisible={true}
+            >
+                {/* <CardMedia className={classes.media} image={images[imgIndex]} title={product.name} onClick={imgClick}/>  */}
+               {
+                    //for each img, add to carousel 
+                    images.map(img => 
+                        <CardMedia className={classes.media} image={img} title={product.name} /> 
+                    )
+               }
+            </Carousel>
+                <CardContent>
+                    <div className={classes.cardContent}>
+                        <Typography variant="h5" gutterBottom>
+                            {product.name}
+                        </Typography>
+                        <Typography variant="h5">
+                            {product.price.formatted_with_symbol}
+                        </Typography>
+                    </div>
+                    <Typography dangerouslySetInnerHTML={{__html: product.description}} variant="body2" color="textSecondary"/>
+                </CardContent>
+            <CardActions className={classes.cardActions}>
             {/* Only shows size dropdown if the products has that option */}
             {product.variant_groups.length > 0 ? <SizeSelect /> : null}
             {   product.variant_groups.length === 0 && product.inventory.available !== 0 ?
@@ -97,8 +109,7 @@ const Product = ({product, onAddToCart, onAddToCartVariant}) => {
                         </IconButton>  
                 :  <IconButton aria-label="Add to Cart" onClick = {() => onAddToCartVariant(product.id, 1, product.variant_groups[0].id, size)}>
                         <AddShoppingCart />
-                    </IconButton> 
-               
+                    </IconButton>    
             }
              </CardActions>
         </Card>
