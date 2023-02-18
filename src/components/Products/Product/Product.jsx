@@ -7,17 +7,22 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
+import Carousel from 'react-material-ui-carousel';
+
 import useStyles from './productStyles';
 
 const Product = ({product, onAddToCart, onAddToCartVariant}) => {
     const classes = useStyles();
     const [size, setSize] = useState("");
 
+    //store for each image of product
+    const [imgIndex, setImgIndex] = useState(0);
+
     const handleChangeSize = (event) => {
         setSize(event.target.value);
-        console.log("Here is the size now: ", size);
+        // console.log("Here is the size now: ", size);
     }
-    console.log("Logging product from product.jsx", product);
+    // console.log("Logging product from product.jsx", product);
     const SizeSelect = () => (
         <FormControl className={classes.formControl}>
             <InputLabel id="size-select-label">{product.variant_groups[0].name}</InputLabel>
@@ -39,25 +44,53 @@ const Product = ({product, onAddToCart, onAddToCartVariant}) => {
             </Select>
         </FormControl>
     )
-    console.log("Here is product from Product.jsx: ", product);
+    // console.log("Here is product from Product.jsx: ", product);
+
+    //Array of all images of product
+    const images = product.assets.map(asset => asset.url);
+    // console.log("Here is the images object in Product.jsx: ", images);
+
+    const imgClick = () => {
+        console.log('CLICKED!!');
+        // setImgIndex(imgIndex+1);
+        // console.log('imgindex ', imgIndex )
+        if(imgIndex < images.length-1){
+            console.log('imgIndex: ', imgIndex)
+            setImgIndex(imgIndex+1)
+        }
+        else{
+            console.log('in else')
+            setImgIndex(0);
+        }
+
+    }
+
     return (
         <Card className={classes.root}>
-            <a href={product.thank_you_url}target="_blank">
-                <CardMedia className={classes.media} image={product.media.source} title={product.name} /> 
-            </a>
-             <CardContent>
-                 <div className={classes.cardContent}>
-                     <Typography variant="h5" gutterBottom>
-                        {product.name}
-                     </Typography>
-                     <Typography variant="h5">
-                        {product.price.formatted_with_symbol}
-                     </Typography>
-                 </div>
-                 <Typography dangerouslySetInnerHTML={{__html: product.description}} variant="body2" color="textSecondary"/>
-             </CardContent>
-         
-             <CardActions className={classes.cardActions}>
+            <Carousel
+                autoPlay={false}
+                navButtonsAlwaysVisible={true}
+            >
+                {/* <CardMedia className={classes.media} image={images[imgIndex]} title={product.name} onClick={imgClick}/>  */}
+               {
+                    //for each img, add to carousel 
+                    images.map(img => 
+                        <CardMedia className={classes.media} image={img} title={product.name} /> 
+                    )
+               }
+            </Carousel>
+                <CardContent>
+                    <div className={classes.cardContent}>
+                        <Typography variant="h5" gutterBottom>
+                            {product.name}
+                        </Typography>
+                        <Typography variant="h5">
+                            {product.price.formatted_with_symbol}
+                        </Typography>
+                    </div>
+                    <Typography dangerouslySetInnerHTML={{__html: product.description}} variant="body2" color="textSecondary"/>
+                </CardContent>
+            <CardActions className={classes.cardActions}>
             {/* Only shows size dropdown if the products has that option */}
             {product.variant_groups.length > 0 ? <SizeSelect /> : null}
             {   product.variant_groups.length === 0 && product.inventory.available !== 0 ?
@@ -76,8 +109,7 @@ const Product = ({product, onAddToCart, onAddToCartVariant}) => {
                         </IconButton>  
                 :  <IconButton aria-label="Add to Cart" onClick = {() => onAddToCartVariant(product.id, 1, product.variant_groups[0].id, size)}>
                         <AddShoppingCart />
-                    </IconButton> 
-               
+                    </IconButton>    
             }
              </CardActions>
         </Card>
