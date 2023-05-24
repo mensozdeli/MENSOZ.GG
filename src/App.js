@@ -165,7 +165,7 @@ const App = () => {
                         <img src={logo} className="App-logo" alt="logo" />
                         <iframe width="311" height="175" src="https://www.youtube.com/embed/JH61TJ9Tgr4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         <p>
-                        ¡ NO VISION , NO HOPE !
+                        ¡ METAPHYSICALWEAR !
                         </p>
                         </header>
                         <div className="Products">
@@ -194,7 +194,7 @@ const App = () => {
 
                     {/* Cart Route */}
                     <Route exact path="/cart">
-                        <Cart 
+                        <Cart  
                             cart={cart}
                             handleUpdateCartQty={handleUpdateCartQty}
                             handleRemoveFromCart={handleRemoveFromCart}
